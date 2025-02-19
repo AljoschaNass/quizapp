@@ -1,0 +1,107 @@
+.content{
+    height: 500px;
+    width: 750px;
+    display: flex;
+    border-radius: 12px;
+}
+
+.quiz_menu{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #27345C;
+    color: white;
+    border-radius: 12px 0 0 12px;
+}
+
+.quiz_menu img{
+    margin-top: 24px;
+    height: 64px;
+    width: auto;
+}
+
+.quiz_sections{
+    margin-top: 64px;
+    width: 100%;
+}
+
+.quiz_sections p{
+    padding-left: 48px;
+}
+
+.quiz_sections p:hover{
+    cursor: pointer;
+    border-right: solid 5px;
+}
+
+.border_left{
+    border-left: solid 5px;
+}
+
+.quiz_screen{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0 12px 12px 0;
+}
+
+.quiz_start_screen{
+    background-image: url(./assets/icons/brainbg.jpg);
+    background-position: center;
+    background-size: 92%;
+    font-family: "PT Sans" !important;
+}
+
+.quiz_question_screen{
+    background-color: rgba(245, 245, 245, 0.8);
+}
+
+.awnser_section{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    height: 40px;
+    width: 400px;
+    margin-bottom: 12px;
+}
+
+.awnser_number{
+    background-color: rgba(0, 0, 0, 0.218);
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+}
+
+.awnser{
+    margin: 0;
+    margin-left: 20px;
+}
+
+.quiz_end_screen{
+    background-color: rgba(245, 245, 245, 0.8);
+    font-weight: bold;
+}
+
+.end_screen_top_img{
+    height: 96px;
+    margin-bottom: 12px;
+}
+
+.scrore_section{
+    display: flex;
+    gap: 12px;
+}
+
+.tropy_img{
+    height: 220px;
+    position: absolute;
+    left: 706px;
+}

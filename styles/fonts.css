@@ -1,0 +1,9 @@
+@font-face {
+    font-family: Rubik;
+    src: url(../assets/fonts/Rubik/Rubik-VariableFont_wght.ttf)
+  }
+
+  @font-face {
+    font-family: PT Sans regular;
+    src: url(../assets/fonts/PT_Sans/PTSans-Regular.ttf)
+  }

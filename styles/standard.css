@@ -4,6 +4,28 @@
     scroll-behavior: smooth;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: "Rubik";
+}
+
 a {
     text-decoration: none;
+}
+
+.d_none{
+    display: none;
+}
+
+.d_flex{
+    display: flex;
+}
+
+.color_orange{
+    color: orange;
 }

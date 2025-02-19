@@ -1,0 +1,24 @@
+button{
+    color: white;
+    border: 0;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-weight: normal;
+    width: 120px;
+}
+
+.btn_start{
+    background-color: #FF4F0C;
+    position: relative;
+    top: 140px;
+    left: 200px;
+}
+
+.btn_share{
+    background-color: blue;
+}
+
+.btn_replay{
+    background-color: rgba(245, 245, 245, 0.8);
+    color: blue;
+}
