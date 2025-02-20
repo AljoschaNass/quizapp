@@ -37,24 +37,24 @@
 
         <div class="quiz_screen quiz_question_screen">
             <h3 id="question">Wer hat HLMT erfunden?</h3>
-            <div class="answer_section">
+            <div onclick="selectedAnswer(1)" class="answer_section">
                 <p class="answer_number">A</p>
                 <p id="answer_1" class="answer">Robbie Williams</p>
             </div>
-            <div class="answer_section">
+            <div onclick="selectedAnswer(2)" class="answer_section">
                 <p class="answer_number">B</p>
                 <p id="answer_2" class="answer">Lady Gaga</p>
             </div>
-            <div class="answer_section">
+            <div onclick="selectedAnswer(3)" class="answer_section">
                 <p class="answer_number">C</p>
                 <p id="answer_3" class="answer">Tim Berners - Lee</p>
             </div>
-            <div class="answer_section">
+            <div onclick="selectedAnswer(4)" class="answer_section">
                 <p class="answer_number">D</p>
                 <p id="answer_4" class="answer">Justin Bieber</p>
             </div>
             <div>
-                <button class="btn_next">Weiter</button>
+                <button onclick="nextQuestion()" class="btn_next">Weiter</button>
             </div>
         </div>
 

@@ -66,6 +66,8 @@
     margin-bottom: 56px;
     margin-left: 24px;
     margin-right: 24px;
+    font-size: 24px;
+    height: 60px;
 }
 
 .answer_section{
@@ -74,7 +76,7 @@
     align-items: center;
     background-color: white;
     height: 50px;
-    width: 400px;
+    width: 450px;
     margin-bottom: 12px;
     cursor: pointer;
 }
@@ -96,6 +98,8 @@
 .answer{
     margin: 0;
     margin-left: 20px;
+    text-align: left;
+    max-width: 380px;
 }
 
 .quiz_end_screen{

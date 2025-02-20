@@ -29,3 +29,11 @@ a {
 .color_orange{
     color: orange;
 }
+
+.bg_green{
+    background-color: green !important;
+}
+
+.bg_red{
+    background-color: red !important;
+}

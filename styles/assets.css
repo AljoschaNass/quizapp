@@ -29,3 +29,7 @@ button{
     background-color: rgba(245, 245, 245, 0.8);
     color: blue;
 }
+
+.btn_replay:hover, .btn_next:hover, .btn_share:hover{
+    background-color: rgb(56, 56, 245);
+}
