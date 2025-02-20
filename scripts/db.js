@@ -1,4 +1,4 @@
-let quiz = [
+let questions = [
     {
         "theme": "HTML",
         "question": "Welche HTML-Tags werden verwendet, um ein Bild einzufügen?",
@@ -359,4 +359,13 @@ let quiz = [
         "awnser_4": "Sie löscht ein Objekt aus dem Speicher.",
         "correctAwnser": 1,
     },
-]
+];
+
+let highscores = [
+    {
+        "HTML": 0,
+        "CSS": 0,
+        "JS": 0,
+        "Java": 0,
+    }
+];
