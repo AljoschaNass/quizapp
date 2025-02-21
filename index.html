@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles/standard.css">
     <link rel="stylesheet" href="styles/assets.css">
 
+    <script src="./scripts/templates.js"></script>
     <script src="./scripts/db.js"></script>
     <script src="script.js"></script>
     
@@ -23,19 +24,19 @@
         <div class="quiz_menu">
             <img src="./assets/icons/logo.png" alt="Brain Logo">
             <div class="quiz_sections">
-                <p>HTML</p>
-                <p>CSS</p>
-                <p>JS</p>
-                <p>Java</p>
+                <p id="html_theme" onclick="selectQuiz(1)">HTML</p>
+                <p id="css_theme" onclick="selectQuiz(2)">CSS</p>
+                <p id="js_theme" onclick="selectQuiz(3)">JS</p>
+                <p id="java_theme" onclick="selectQuiz(4)">Java</p>
             </div>
         </div>
-        <div class="quiz_screen quiz_start_screen d_none">
-            <h1>Welcome to<br>The Awesome HTML Quiz</h1>
+        <div id="quiz_start_screen" class="quiz_screen quiz_start_screen">
+            <h1 id="quiz_title">Welcome to<br>The Awesome HTML Quiz</h1>
             <h3>Ready for the Challenge?</h3>
-            <button class="btn_start">START NOW ></button>
+            <button onclick="startQuiz()" class="btn_start">START NOW ></button>
         </div>
 
-        <div class="quiz_screen quiz_question_screen">
+        <div id="quiz_question_screen" class="quiz_screen quiz_question_screen d_none">
             <h3 id="question">Wer hat HLMT erfunden?</h3>
             <div onclick="selectedAnswer(1)" class="answer_section">
                 <p class="answer_number">A</p>
@@ -54,16 +55,16 @@
                 <p id="answer_4" class="answer">Justin Bieber</p>
             </div>
             <div>
-                <button onclick="nextQuestion()" class="btn_next">Weiter</button>
+                <button onclick="nextQuestion()" id="button_next" class="btn_next btn_disabled" disabled>Weiter</button>
             </div>
         </div>
 
-        <div class="quiz_screen quiz_end_screen d_none">
+        <div id="quiz_end_screen" class="quiz_screen quiz_end_screen d_none">
             <img class="end_screen_top_img" src="./assets/icons/brain result.png" alt="brain result">
             <h3>Complete<br>HTML Quiz</h3>
             <div class="scrore_section">
                 <h4 class="color_orange">Your score</h4>
-                <h4>10/10</h4>
+                <h4 id="score">/10</h4>
             </div>
             <button class="btn_share">SHARE</button>
             <button class="btn_replay">REPLAY</button>
