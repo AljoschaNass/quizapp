@@ -110,6 +110,7 @@
 .end_screen_top_img{
     height: 96px;
     margin-bottom: 12px;
+    margin-top: 200px;
 }
 
 .scrore_section{
@@ -121,4 +122,5 @@
     height: 220px;
     position: relative;
     left: 246px;
+    bottom: 260px;
 }

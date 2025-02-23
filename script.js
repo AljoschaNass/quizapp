@@ -46,7 +46,7 @@ function nextQuestion() {
     document.getElementById("answer_4").parentNode.classList.remove("bg_green", "bg_red");
     let disableBtn = document.getElementById("button_next");
     disableBtn.disabled = true;
-    disableBtn.classList.toggle("btn_disabled");
+    disableBtn.classList.add("btn_disabled");
     questionNumber++;
     showEndScreen();
     loadFirstQuestion();
@@ -67,7 +67,7 @@ function selectedAnswer(num) {
     }
     let disableBtn = document.getElementById("button_next");
     disableBtn.disabled = false;
-    disableBtn.classList.toggle("btn_disabled");
+    disableBtn.classList.remove("btn_disabled");
 }
 
 function showEndScreen() {
@@ -88,7 +88,15 @@ function showScore() {
 }
 
 function selectQuiz(num) {
+    let startScreen = document.getElementById("quiz_start_screen");
+    startScreen.classList.remove("d_none");
+    let questionScreen = document.getElementById("quiz_question_screen");
+    questionScreen.classList.add("d_none");
+    let endScreen = document.getElementById("quiz_end_screen");
+    endScreen.classList.add("d_none");
+
     let quizTitle = document.getElementById("quiz_title");
+    let quizScore = document.getElementById("quiz_score");
 
     let htmlTheme = document.getElementById("html_theme");
     let cssTheme = document.getElementById("css_theme");
@@ -98,6 +106,7 @@ function selectQuiz(num) {
     if(num == 1) {
         questionNumber = 0;
         quizTitle.innerHTML = templateQuizHtml();
+        quizScore.innerHTML = templateScoreHtml();
         htmlTheme.classList.add("border_left");
         cssTheme.classList.remove("border_left");
         jsTheme.classList.remove("border_left");
@@ -105,6 +114,7 @@ function selectQuiz(num) {
     } if (num == 2) {
         questionNumber = 10;
         quizTitle.innerHTML = templateQuizCss();
+        quizScore.innerHTML = templateScoreCss();
         htmlTheme.classList.remove("border_left");
         cssTheme.classList.add("border_left");
         jsTheme.classList.remove("border_left");
@@ -112,6 +122,7 @@ function selectQuiz(num) {
     } if (num == 3) {
         questionNumber = 20;
         quizTitle.innerHTML = templateQuizJs();
+        quizScore.innerHTML = templateScoreJs();
         htmlTheme.classList.remove("border_left");
         cssTheme.classList.remove("border_left");
         jsTheme.classList.add("border_left");
@@ -119,9 +130,20 @@ function selectQuiz(num) {
     } if (num == 4) {
         questionNumber = 30;
         quizTitle.innerHTML = templateQuizJava();
+        quizScore.innerHTML = templateScoreJava();
         htmlTheme.classList.remove("border_left");
         cssTheme.classList.remove("border_left");
         jsTheme.classList.remove("border_left");
         javaTheme.classList.add("border_left");
     }
+}
+
+function replayQuiz() {
+    let startScreen = document.getElementById("quiz_start_screen");
+    startScreen.classList.remove("d_none");
+    let questionScreen = document.getElementById("quiz_question_screen");
+    questionScreen.classList.add("d_none");
+    let endScreen = document.getElementById("quiz_end_screen");
+    endScreen.classList.add("d_none");
+    counter = 0;
 }
