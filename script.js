@@ -4,7 +4,7 @@ let counter = 0;
 function init() {
     getFromLocalStorage();
     selectQuiz(1);
-    loadFirstQuestion();
+    loadQuestion();
 }
 
 function saveToLocalStorage(){
@@ -19,14 +19,10 @@ function getFromLocalStorage() {
 }
 
 function startQuiz() {
-    let startScreen = document.getElementById("quiz_start_screen");
-    startScreen.classList.add("d_none");
-
-    let questionScreen = document.getElementById("quiz_question_screen");
-    questionScreen.classList.remove("d_none");
+    showQuestionScreen();
 }
 
-function loadFirstQuestion() {
+function loadQuestion() {
     let questionRef = document.getElementById("question");
     questionRef.innerText = questions[questionNumber].question;
     let answerOneRef = document.getElementById("answer_1");
@@ -40,16 +36,11 @@ function loadFirstQuestion() {
 }
 
 function nextQuestion() {
-    document.getElementById("answer_1").parentNode.classList.remove("bg_green", "bg_red");
-    document.getElementById("answer_2").parentNode.classList.remove("bg_green", "bg_red");
-    document.getElementById("answer_3").parentNode.classList.remove("bg_green", "bg_red");
-    document.getElementById("answer_4").parentNode.classList.remove("bg_green", "bg_red");
-    let disableBtn = document.getElementById("button_next");
-    disableBtn.disabled = true;
-    disableBtn.classList.add("btn_disabled");
+    removeBackground();
+    disableNextButton();
     questionNumber++;
-    showEndScreen();
-    loadFirstQuestion();
+    endScreen();
+    loadQuestion();
 }
 
 function selectedAnswer(num) {
@@ -65,20 +56,14 @@ function selectedAnswer(num) {
         let correctAnswer = document.getElementById("answer_" + questions[questionNumber].correctAnswer);
         correctAnswer.parentNode.classList.add("bg_green");
     }
-    let disableBtn = document.getElementById("button_next");
-    disableBtn.disabled = false;
-    disableBtn.classList.remove("btn_disabled");
+    enableNextButton();
 }
 
-function showEndScreen() {
+function endScreen() {
     if(questionNumber == 10 || questionNumber == 20 || questionNumber == 30 || questionNumber == 40) {
         showScore();
 
-        let questionScreen = document.getElementById("quiz_question_screen");
-        questionScreen.classList.add("d_none");
-
-        let endScreen = document.getElementById("quiz_end_screen");
-        endScreen.classList.remove("d_none");
+        showEndScreen();
     }
 }
 
@@ -88,62 +73,111 @@ function showScore() {
 }
 
 function selectQuiz(num) {
-    let startScreen = document.getElementById("quiz_start_screen");
-    startScreen.classList.remove("d_none");
-    let questionScreen = document.getElementById("quiz_question_screen");
-    questionScreen.classList.add("d_none");
-    let endScreen = document.getElementById("quiz_end_screen");
-    endScreen.classList.add("d_none");
-
+    showStartScreen();
     let quizTitle = document.getElementById("quiz_title");
     let quizScore = document.getElementById("quiz_score");
-
     let htmlTheme = document.getElementById("html_theme");
     let cssTheme = document.getElementById("css_theme");
     let jsTheme = document.getElementById("js_theme");
     let javaTheme = document.getElementById("java_theme");
-
     if(num == 1) {
-        questionNumber = 0;
-        quizTitle.innerHTML = templateQuizHtml();
-        quizScore.innerHTML = templateScoreHtml();
-        htmlTheme.classList.add("border_left");
-        cssTheme.classList.remove("border_left");
-        jsTheme.classList.remove("border_left");
-        javaTheme.classList.remove("border_left");
+        htmlQuiz(quizTitle, quizScore, htmlTheme, cssTheme, jsTheme, javaTheme);
     } if (num == 2) {
-        questionNumber = 10;
-        quizTitle.innerHTML = templateQuizCss();
-        quizScore.innerHTML = templateScoreCss();
-        htmlTheme.classList.remove("border_left");
-        cssTheme.classList.add("border_left");
-        jsTheme.classList.remove("border_left");
-        javaTheme.classList.remove("border_left");
+        cssQuiz(quizTitle, quizScore, htmlTheme, cssTheme, jsTheme, javaTheme);
     } if (num == 3) {
-        questionNumber = 20;
-        quizTitle.innerHTML = templateQuizJs();
-        quizScore.innerHTML = templateScoreJs();
-        htmlTheme.classList.remove("border_left");
-        cssTheme.classList.remove("border_left");
-        jsTheme.classList.add("border_left");
-        javaTheme.classList.remove("border_left");
+        jsQuiz(quizTitle, quizScore, htmlTheme, cssTheme, jsTheme, javaTheme);
     } if (num == 4) {
-        questionNumber = 30;
-        quizTitle.innerHTML = templateQuizJava();
-        quizScore.innerHTML = templateScoreJava();
-        htmlTheme.classList.remove("border_left");
-        cssTheme.classList.remove("border_left");
-        jsTheme.classList.remove("border_left");
-        javaTheme.classList.add("border_left");
+        javaQuiz(quizTitle, quizScore, htmlTheme, cssTheme, jsTheme, javaTheme);
     }
 }
 
 function replayQuiz() {
+    showStartScreen();
+    counter = 0;
+}
+
+function showStartScreen() {
     let startScreen = document.getElementById("quiz_start_screen");
     startScreen.classList.remove("d_none");
     let questionScreen = document.getElementById("quiz_question_screen");
     questionScreen.classList.add("d_none");
     let endScreen = document.getElementById("quiz_end_screen");
     endScreen.classList.add("d_none");
-    counter = 0;
+}
+
+function showQuestionScreen() {
+    let startScreen = document.getElementById("quiz_start_screen");
+    startScreen.classList.add("d_none");
+    let questionScreen = document.getElementById("quiz_question_screen");
+    questionScreen.classList.remove("d_none");
+    let endScreen = document.getElementById("quiz_end_screen");
+    endScreen.classList.add("d_none");
+}
+
+function showEndScreen() {
+    let startScreen = document.getElementById("quiz_start_screen");
+    startScreen.classList.add("d_none");
+    let questionScreen = document.getElementById("quiz_question_screen");
+    questionScreen.classList.add("d_none");
+    let endScreen = document.getElementById("quiz_end_screen");
+    endScreen.classList.remove("d_none");
+}
+
+function removeBackground() {
+    document.getElementById("answer_1").parentNode.classList.remove("bg_green", "bg_red");
+    document.getElementById("answer_2").parentNode.classList.remove("bg_green", "bg_red");
+    document.getElementById("answer_3").parentNode.classList.remove("bg_green", "bg_red");
+    document.getElementById("answer_4").parentNode.classList.remove("bg_green", "bg_red");
+}
+
+function disableNextButton() {
+    let disableBtn = document.getElementById("button_next");
+    disableBtn.disabled = true;
+    disableBtn.classList.add("btn_disabled");
+}
+
+function enableNextButton() {
+    let disableBtn = document.getElementById("button_next");
+    disableBtn.disabled = false;
+    disableBtn.classList.remove("btn_disabled");
+}
+
+function htmlQuiz(quizTitle, quizScore, htmlTheme, cssTheme, jsTheme, javaTheme) {
+    questionNumber = 0;
+    quizTitle.innerHTML = templateQuizHtml();
+    quizScore.innerHTML = templateScoreHtml();
+    htmlTheme.classList.add("border_left");
+    cssTheme.classList.remove("border_left");
+    jsTheme.classList.remove("border_left");
+    javaTheme.classList.remove("border_left");
+}
+
+function cssQuiz(quizTitle, quizScore, htmlTheme, cssTheme, jsTheme, javaTheme) {
+    questionNumber = 10;
+    quizTitle.innerHTML = templateQuizCss();
+    quizScore.innerHTML = templateScoreCss();
+    htmlTheme.classList.remove("border_left");
+    cssTheme.classList.add("border_left");
+    jsTheme.classList.remove("border_left");
+    javaTheme.classList.remove("border_left");
+}
+
+function jsQuiz(quizTitle, quizScore, htmlTheme, cssTheme, jsTheme, javaTheme) {
+    questionNumber = 20;
+    quizTitle.innerHTML = templateQuizJs();
+    quizScore.innerHTML = templateScoreJs();
+    htmlTheme.classList.remove("border_left");
+    cssTheme.classList.remove("border_left");
+    jsTheme.classList.add("border_left");
+    javaTheme.classList.remove("border_left");
+}
+
+function javaQuiz(quizTitle, quizScore, htmlTheme, cssTheme, jsTheme, javaTheme) {
+    questionNumber = 30;
+    quizTitle.innerHTML = templateQuizJava();
+    quizScore.innerHTML = templateScoreJava();
+    htmlTheme.classList.remove("border_left");
+    cssTheme.classList.remove("border_left");
+    jsTheme.classList.remove("border_left");
+    javaTheme.classList.add("border_left");
 }
